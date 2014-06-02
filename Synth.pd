@@ -1,0 +1,65 @@
+#N canvas 47 22 661 764 10;
+#X declare -lib mrpeach;
+#X obj 105 -83 import mrpeach;
+#X obj 104 -53 udpreceive 9001;
+#X obj 104 -23 unpackOSC;
+#X obj 116 17 print;
+#X text 207 -52 left: osc messages \, right: IP address;
+#X obj 102 47 routeOSC /note;
+#X obj 196 314 env~;
+#X obj 270 95 vsl 60 200 0 0.1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 3600 1;
+#X obj 100 296 *~;
+#X obj 196 341 - 100;
+#X obj 197 396 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 77 352 dac~ 1 2;
+#X obj 448 286 vline~;
+#X msg 449 154 1 \$2 \, \$4 \$3 \$2;
+#X msg 552 210 0 \$2;
+#X obj 458 -78 vsl 15 128 0 300 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2700 1;
+#X obj 495 -78 vsl 15 128 0 500 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2400 1;
+#X obj 532 -78 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1900 1;
+#X obj 598 -78 vsl 15 128 0 1000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1300 1;
+#X floatatom 458 72 5 0 0 0 - - -;
+#X floatatom 495 72 5 0 0 0 - - -;
+#X floatatom 532 72 5 0 0 0 - - -;
+#X floatatom 598 72 5 0 0 0 - - -;
+#X obj 449 114 pack f f f f;
+#X obj 552 185 pack f f;
+#X obj 552 160 sel 0;
+#X obj 100 219 osc~;
+#X text 242 49;
+#X obj 101 122 unpack f;
+#X floatatom 55 168 5 0 0 0 - - -;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 0 5 0;
+#X connect 5 0 28 0;
+#X connect 5 0 23 0;
+#X connect 5 0 25 0;
+#X connect 6 0 9 0;
+#X connect 7 0 8 1;
+#X connect 8 0 6 0;
+#X connect 8 0 11 0;
+#X connect 8 0 11 1;
+#X connect 9 0 10 0;
+#X connect 13 0 12 0;
+#X connect 14 0 12 1;
+#X connect 15 0 19 0;
+#X connect 16 0 20 0;
+#X connect 17 0 21 0;
+#X connect 18 0 22 0;
+#X connect 19 0 23 1;
+#X connect 20 0 23 2;
+#X connect 21 0 23 3;
+#X connect 22 0 24 1;
+#X connect 23 0 13 0;
+#X connect 24 0 14 0;
+#X connect 25 0 24 0;
+#X connect 26 0 8 0;
+#X connect 28 0 26 0;
+#X connect 28 0 29 0;
